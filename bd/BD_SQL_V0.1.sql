@@ -35,13 +35,16 @@ CREATE TABLE IF NOT EXISTS `answers` (
 -- Volcando estructura para tabla kahoot.creators
 CREATE TABLE IF NOT EXISTS `creators` (
   `id_creator` bigint(6) NOT NULL AUTO_INCREMENT,
+  `role` bigint(6) NOT NULL,
   `username` varchar(50) COLLATE utf8_bin NOT NULL,
   `name` varchar(50) COLLATE utf8_bin NOT NULL,
   `email` varchar(65) COLLATE utf8_bin NOT NULL,
   `password` varchar(600) COLLATE utf8_bin NOT NULL DEFAULT '0',
   `useradd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `userupdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_creator`)
+  `userupdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_creator`),
+  KEY `FK_Role_creator` (`role`),
+  CONSTRAINT `FK_Role_creator` FOREIGN KEY (`role`) REFERENCES `roles` (`id_role`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tabla para almacenar todos los usuarios con rol de profesor. Pueden generar Kahoots, modificarlos y eliminarlos.';
 
 -- Volcando datos para la tabla kahoot.creators: ~0 rows (aproximadamente)
@@ -52,7 +55,10 @@ CREATE TABLE IF NOT EXISTS `creators` (
 CREATE TABLE IF NOT EXISTS `players` (
   `id_player` bigint(6) NOT NULL AUTO_INCREMENT,
   `nickname` varchar(50) COLLATE utf8_bin NOT NULL DEFAULT 'ANONIMUS',
-  `useradd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `score` int(6) DEFAULT NULL,
+  `answers_correct` int(6) DEFAULT '0',
+  `playeradd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `playerup` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_player`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Jugadores anónimos';
 
@@ -119,6 +125,17 @@ CREATE TABLE IF NOT EXISTS `ranking` (
 -- Volcando datos para la tabla kahoot.ranking: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `ranking` DISABLE KEYS */;
 /*!40000 ALTER TABLE `ranking` ENABLE KEYS */;
+
+-- Volcando estructura para tabla kahoot.roles
+CREATE TABLE IF NOT EXISTS `roles` (
+  `id_role` bigint(6) NOT NULL AUTO_INCREMENT,
+  `name_role` varchar(50) COLLATE utf8_bin NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_role`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Roles que determinan el tipo de creador';
+
+-- Volcando datos para la tabla kahoot.roles: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

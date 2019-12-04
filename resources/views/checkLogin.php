@@ -12,7 +12,7 @@
         if(!$registre){
       		echo "Contraseña o usuario incorrecto";
         }else{
-        	echo "Bien venido ". $usr;
+        	echo "Bienvenido ". $usr;
         }
     } catch (PDOException $e) {
     	echo "Failed to get DB handle: " . $e->getMessage() . "\n";

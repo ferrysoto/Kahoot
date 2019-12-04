@@ -8,34 +8,34 @@
     <link rel="stylesheet" href="./public/css/bootstrap.css">
     <script type="text/javascript" src="./public/js/bootstrap.js"></script>
     <script type="text/javascript" src="./public/js/bootstrap.min.js"></script>
-    <!-- <script type="text/javascript" src="./public/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./public/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Kahoot</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
       <ul class="navbar-nav">
+        <img src="./resources/logo.png" alt="Logo Kahoot" width="100px" height="auto" style="filter: brightness(100);">
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item active" style="margin-right: 10px;">
+          <a href="#" class="nav-link" role="button" aria-pressed="true">Enter PIN Game</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-success" href="#" data-toggle="modal" data-target="#signUpModal">Sing Up! - It's free</a>
+        </li>
         <li class="nav-item active">
-          <a href="#" role="button" class="btn btn-outline-light" data-toggle="modal" data-target="#loginUpModal">Log in</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="btn btn-outline-success" role="button" aria-pressed="true">Enter PIN Game</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a href="#" role="button" class="nav-link" data-toggle="modal" data-target="#loginUpModal">Log in</a>
         </li>
       </ul>
     </nav>
     <div class="col-md-12">
-      <!-- Modal -->
+      <!-- Modal Log in-->
       <div class="modal fade" id="loginUpModal" tabindex="-1" role="dialloginUpModalog" aria-labelledby="loginUpModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Log in Kahoot</h5>
+              <h5 class="modal-title" id="login">Log in Kahoot</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -43,16 +43,69 @@
             <div class="modal-body">
               <div class="form">
                 <form action="./resources/views/checkLogin.php" method="post" class="login-form">
-                  <input type="text" name="user" placeholder="username"/>
-                  <input type="password" name="password" placeholder="password"/>
-                  <button type="submit" name="button" class="btn btn-primary">Log in</button>
+                  <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" aria-describedby="name" placeholder="Username" maxlength="75" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                  </div>
+                  <button type="submit" name="button" class="btn btn-primary justify-content-end">Log in</button>
                   <p class="message">Not registered? <a href="#">Create an account now!</a></p>
                 </form>
               </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary" >Log in</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <!-- Modal Sign in-->
+      <div class="modal fade" id="signUpModal" tabindex="-1" role="dialsignUpModalog" aria-labelledby="signUpModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="singin">Sign in Kahoot</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form">
+                <form action="./resources/views/confirmationAccountCreator.php" method="post" class="login-form">
+                  <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" aria-describedby="name" placeholder="Username" maxlength="75" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="nameUser">Name</label>
+                    <input type="text" class="form-control" id="nameUser" name="nameUser" placeholder="Name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="role">Role</label>
+                    <select class="custom-select" name="role">
+                      <option value="1">Professor</option>
+                    </select>
+                  </div>
+                  <button type="submit" name="button" class="btn btn-primary justify-content-end">Log in</button>
+                  <p class="message">Not registered? <a href="#">Create an account now!</a></p>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>

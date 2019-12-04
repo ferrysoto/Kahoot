@@ -1,24 +1,26 @@
 <?php
 	
-	//$usr = $_POST['user'];
-	//$psw = $_POST['password']
-	$usr = htmlspecialchars($_POST['username']);
-	$psw = htmlspecialchars($_POST['password']);
-    $nme = htmlspecialchars($_POST['name']);
-    $eml = htmlspecialchars($_POST['email']);
+	$user = htmlspecialchars($_POST['username']);
+	$pass = htmlspecialchars($_POST['password']);
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $type = htmlspecialchars($_POST['typeAccount']);
+
     
 	try {
         $pdo = new PDO("mysql:host=localhost;dbname=kahoot", "paco", "Admin1234");
 
-        $query = $pdo->prepare("INSERT INTO creators (role,username,name,email,password) VALUES   ('"1"','".$usr."','".$nme."','".$eml."',sha2('".$psw"',512)");
+        $query = $pdo->prepare("INSERT INTO creators (role,username,name,email,password) VALUES (".$type.",'".$user."','".$name."','".$email."', sha2('".$pass."',512);");
 
-        $query->execute();
+        $res = $query->execute();
         
-        $registre = $query->fetch();
-        if(!$registre){
+        
+
+        if(!$res){
+            print_r($query->errorInfo());
       		echo "ERROR";
         }else{
-        	echo "REGISTRO CORRECTO ". $usr;
+        	echo "REGISTRO CORRECTO ". $user;
         }
     } catch (PDOException $e) {
     	echo "Failed to get DB handle: " . $e->getMessage() . "\n";

@@ -3,10 +3,10 @@ Kahoot developed for IETI Project
 
 
 # To install:
-1.- Copy and unzip the release on your root directory (depends if you use apache and your OS).
-2.- Copy all content from the last seed (you can find the seeds on bd folder) and execute the sql file on your database Manage.
-3.- Turn on the SQL and Apache services.
-4.- If you see the kahoot app on your ip server, it's the installation correct. For problems or more information see the official guides of Apache, MySql o your OS.
+1. Copy and unzip the release on your root directory (depends if you use apache and your OS).
+2. Copy all content from the last seed (you can find the seeds on bd folder) and execute the sql file on your database Manage.
+3. Turn on the SQL and Apache services.
+4. If you see the kahoot app on your ip server, it's the installation correct. For problems or more information see the official guides of Apache, MySql o your OS.
 
 # To use:
 This application was tested on the next Web Brosers:

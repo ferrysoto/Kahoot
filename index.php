@@ -20,7 +20,7 @@
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item active" style="margin-right: 10px;">
-          <a href="#" class="nav-link" role="button" aria-pressed="true">Enter PIN Game</a>
+          <a href="resources/views/enterPin.php" class="nav-link" role="button" aria-pressed="true">Enter PIN Game</a>
         </li>
         <li class="nav-item">
           <a class="btn btn-success" href="#" data-toggle="modal" data-target="#signUpModal">Sing Up! - It's free</a>

@@ -14,7 +14,7 @@
     <title>Kahoot PIN</title>
 </head>
 <body class="backgroundColorChanges">
-  <div class="container-fluid">
+  <div class="container">
     <div class="row ">
       <div class="col-xl-3 col-md-3 mx-auto" >
           <img src="../img/logo.png" class="img-fluid mx-auto" style="filter: brightness(100);">

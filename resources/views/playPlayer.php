@@ -2,12 +2,12 @@
 <html>
 <head>
     <?php session_start(); ?>
-    <meta http-equiv="refresh" content="5">    
+    <!--<meta http-equiv="refresh" content="5">    -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="./public/css/main.css">
+    <link rel="stylesheet" href="../../public/css/main.css">
 
     <link rel="stylesheet" type="text/css" href="../../public/css/backgroundColorChanges.css">
     <link rel="stylesheet" type="text/css" href="../../public/css/lds-spinner.css">
@@ -15,10 +15,18 @@
 
 </head>
 <body class="backgroundColorChanges">
-  <div class="container">
+<nav class="navbar navbar-dark bg-dark" style="position: absolute; width: 100%;">
+  <a class="navbar-brand" href="../../index.php"><img style="max-height: 5vh;" src="../img/logo.png"></a>
+  <?php  echo "<a class='navbar-brand'>Player: ".$_SESSION['playerNick']."</a></nav>";?>
+
+
+
+  <div class="center-div">
+
+
+  <div class="container center-div-inside">
     <div class="row ">
-      <div class="col-xl-3 col-md-3 mx-auto d-flex " >
-          <img src="../img/logo.png" class="img-fluid mx-auto" style="filter: brightness(100);">
+      <div class="col-xl-6 col-md-6 mx-auto text-center" style="vertical-align: middle;" >
           <?php 
               $correct=2;
               $pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "");
@@ -27,7 +35,8 @@
               $registre = $query->fetch();
               $status=$registre[0];
               if ($status=="waiting") {
-                 echo "<div class='lds-spinner'><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>";
+                 echo "<h4 style='color:white;'>Waiting for players</h4>
+                 <div class='max-auto lds-spinner'><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>";
               }elseif (empty($status) || $status=="finished") {
                     echo $status."Finished";
               }elseif($correct || $status=="pause"){
@@ -39,6 +48,8 @@
         
             
             ?>
+            
+        </div>
       </div>
     </div>
   </div>

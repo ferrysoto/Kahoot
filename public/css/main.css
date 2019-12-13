@@ -88,3 +88,18 @@ p {
   top: 100px;
   left: 1233px;
 }
+
+
+.center-div { 
+        height: 100%;
+        position: relative;
+      }
+
+.center-div-inside {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

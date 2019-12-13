@@ -1,0 +1,22 @@
+html, body{
+	height: 100%
+}
+.general {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+.question {
+	height: 15%;
+	background-color: white;
+	}
+
+.answer {
+	height: 70%;
+	background-color: blue; 
+}
+
+.information {
+	height: 15%;
+	background-color: green;
+}

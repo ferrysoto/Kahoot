@@ -22,4 +22,3 @@ The firsts screen are 100% responsive and you can find a little pictures of prot
 Developed by 
 - Paco Cayuela 
 - Ferran Herrero
-- Almudena Raya

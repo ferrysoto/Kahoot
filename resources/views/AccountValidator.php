@@ -41,7 +41,6 @@
 				$query->execute();
 
 				$id_creator = $query->fetch();
-				echo "ID_CREADOR: ".$id_creator['id_creator'];
 				include 'saveImageProfile.php';
 			}
 		} catch (PDOException $e) {

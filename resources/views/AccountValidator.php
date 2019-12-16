@@ -37,6 +37,12 @@
 				<a class='btn btn-primary btn-lg' href='https://kahoot.com/mobile-app/?deviceId=e0bd7683-825a-46cc-83a2-bf230ba0a20cR&sessionId=1575824718056' role='button' target='_blank'>Learn more</a>
 				</div>
 				";
+				$query = $pdo->prepare("SELECT id_creator from creators where username='$user' AND password = sha2('$pass', 512)  AND email='$email';");
+				$query->execute();
+
+				$id_creator = $query->fetch();
+				echo "ID_CREADOR: ".$id_creator['id_creator'];
+				include 'saveImageProfile.php';
 			}
 		} catch (PDOException $e) {
 			echo "Failed to get DB handle: " . $e->getMessage() . "\n";

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -107,7 +108,7 @@
             </div>
             <div class="modal-body">
               <div class="form">
-                <form action="./resources/views/AccountValidator.php" method="post" class="login-form">
+                <form action="./resources/views/AccountValidator.php" method="post" class="login-form" enctype="multipart/form-data">
                   <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" name="nameUser" aria-describedby="name" placeholder="Username" maxlength="75" required>
@@ -133,8 +134,12 @@
                       <option value="4" disabled>Work</option>
                     </select>
                   </div>
+                   <div class="form-group">
+                      <label for="profileImage">Profile Image</label>
+                      <input type="file" class="form-control-file" accept=".png, .jpg, .jpeg, .gif" name="profileImage" id="profileImage">
+                  </div>
                   <button type="submit" name="button" class="btn btn-primary justify-content-end">Sign in</button>
-                  <p class="message">Are registered? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#loginUpModal">Log in now!</a></p>
+                  <p class="message">Are you registered? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#loginUpModal">Log in now!</a></p>
                 </form>
               </div>
             </div>

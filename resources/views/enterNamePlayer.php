@@ -37,6 +37,7 @@
               
               if($registre){
                 $_SESSION['id_player']=$registre[0];
+                $_SESSION['correct']=null;
                 echo "<script type='text/javascript'>                       window.location = './playPlayer.php';</script>";
               }
             }

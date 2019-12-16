@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $user = htmlspecialchars($_POST['nameUser']);
 $pass = htmlspecialchars($_POST['password']);
 
@@ -13,6 +13,8 @@ $pass = htmlspecialchars($_POST['password']);
         if(!$registre){
       		echo "Contraseña o usuario incorrecto";
         }else{
+          $_SESSION['nameCreator']=$registre['name'];
+          $_SESSION['id_creator']=$registre['id_creator'];
         	echo "<script type='text/javascript'>
            				window.location = './dashboard.php';
       					</script>";

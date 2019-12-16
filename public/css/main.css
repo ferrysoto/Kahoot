@@ -88,3 +88,11 @@ p {
   top: 100px;
   left: 1233px;
 }
+
+.margin-card {
+  margin: 15px;
+}
+
+.padding-null {
+  padding: 0!important;
+}

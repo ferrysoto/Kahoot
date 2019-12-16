@@ -22,8 +22,7 @@
             // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)) {
-                echo "The file ".$target_dir ."". basename( $_FILES["profileImage"]["name"]). " has been uploaded.";
-               
+                             
                 rename($target_file, "../img/imatges_perfil/".$id_creator['id_creator'].".".$imageFileType);
             }
         

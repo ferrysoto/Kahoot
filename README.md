@@ -20,5 +20,6 @@ The first release are a base form for log in and sign in in the app. For the mom
 The firsts screen are 100% responsive and you can find a little pictures of prototype on warefrimes folder.
 
 Developed by 
+- Almudena Raya
 - Paco Cayuela 
 - Ferran Herrero

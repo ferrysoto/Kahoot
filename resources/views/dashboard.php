@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php session_start(); 
+<?php session_start();
 include 'optionsButtons.php';
 ?>
 <html lang="en" dir="ltr">
@@ -36,7 +36,7 @@ include 'optionsButtons.php';
 	      </li>
 	    </ul>
 	    <span class="navbar-text">
-	    <?php 
+	    <?php
    			$dirs = array_filter(glob('../img/imatges_perfil/*'), 'is_file');
 			$srcImg="";
 			foreach ($dirs as $key => $value) {
@@ -49,37 +49,14 @@ include 'optionsButtons.php';
 			}
 
 	     	echo "<img class='mr-2' style='max-height: 5vh;' src='".$srcImg."''>";
-	       	echo $_SESSION['nameCreator']; 
+	       	echo $_SESSION['nameCreator'];
 	    ?>
 	    </span>
 	  </div>
 	</nav>
-<div class="container">
-	<?php 
-		$pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "");
-        $query = $pdo->prepare("SELECT * FROM quiz where id_creator = ".  $_SESSION['id_creator'] .";" );
-        $query->execute();
-        $quizs = $query->fetchAll();
-        if(!$quizs){
-        	echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'><strong>Holy guacamole!</strong> You dont have any quiz<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
-        }else{
-          echo "<table class='table table-responsive-sm mt-5 mx-auto'><thead><tr><th class='text-center' scope='col'>Name Quiz</th><th scope='col' class='text-center'>Options</th></tr></thead><tbody>";
-										
-										
-											foreach ($quizs as $quiz) {
-												echo '<tr>' .
-												  '<td class="align-middle">'.$quiz['name'].'</td>' .
-												  '<td class="align-middle"><div class="btn-group d-flex justify-content-center" role="group" aria-label="First group">' .
-												  	
-													  '<a href="dashboard.php?play='.$quiz['id_quiz'].'" role="button" class="btn btn-primary " name="button" >Play</a>'.
-													  '<a href="dashboard.php?edit='.$quiz['id_quiz'].'" role="button" class="btn btn-success" name="button">Edit</a>'.
-													  '<a href="dashboard.php?delete='.$quiz['id_quiz'].'" role="button" class="btn btn-danger" name="button">Delete</a>'.
-													  
-												  '</div></td></tr>';
-											}										 
-									echo "</tbody></table>";
-        }
+	<?php
+    include 'dashboard-content.php';
 	 ?>
-	</div>
+
   </body>
 </html>

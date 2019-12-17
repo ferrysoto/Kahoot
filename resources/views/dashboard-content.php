@@ -16,13 +16,13 @@
             <span class="badge badge-secondary badge-pill">$countPlayers</span>
           </li>
           <li>
-            <button type="button" class="list-group-item list-group-item-action active">Create new Kahoot</button>
+            <a type="button" data-toggle="modal" data-target="#newQuiz" class="list-group-item list-group-item-action active">Create new Kahoot</a>
           </li>
           <li>
             <button type="button" class="list-group-item list-group-item-action">My account</button>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
-            <a class="list-group-item-action disabled" href="logout.php">Log Out</a>
+            <a type="button" class="list-group-item-action disabled" href="logout.php">Log Out</a>
           </li>
         </ul>
        </div>
@@ -32,7 +32,6 @@
              <div class="jumbotron" style="background-color: white;">
                <h1 class="display-4">My Kahoots</h1>
                <hr class="my-4">
-               <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
                <?php
                $pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "");
                $query = $pdo->prepare("SELECT * FROM quiz where id_creator = ".  $_SESSION['id_creator'] .";" );
@@ -65,3 +64,56 @@
      </div>
    </div>
  </div>
+
+ <!-- Modal -->
+<div class="modal fade" id="newQuiz" tabindex="-1" role="dialog" aria-labelledby="newQuizLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newQuizLabel">Create new Kahoot</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Example select</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect2">Example multiple select</label>
+            <select multiple class="form-control" id="exampleFormControlSelect2">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Example textarea</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Example file input</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+          </div>
+        </form>      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success">Done!</button>
+      </div>
+    </div>
+  </div>
+</div>

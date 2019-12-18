@@ -5,7 +5,7 @@ $pass = htmlspecialchars($_POST['password']);
 
 
 	try {
-        $pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "P@ssw0rd");
+        $pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "");
         $query = $pdo->prepare("SELECT * FROM creators where username = '". $user ."' and password = SHA2('".$pass."',512);" );
         $query->execute();
 

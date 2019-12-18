@@ -14,7 +14,7 @@
 		$query->execute();
 		$result=$query->fetchAll();
 		return $result;
-	}*/
+	}
 
 	function countRow($tableInfo,$whereInfo){
 		$pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "P@ssw0rd");

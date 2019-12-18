@@ -79,46 +79,39 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="newQuizLabel">Create new Kahoot</h5>
+        <h5 class="modal-title" id="newQuizLabel"><b>Create new Kahoot</b></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Example select</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect2">Example multiple select</label>
-            <select multiple class="form-control" id="exampleFormControlSelect2">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlFile1">Example file input</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-          </div>
-        </form>      </div>
+        <div class="col-md-12">
+          <form>
+            <div class="col-md-6" style="float: left;">
+              <div class="form-group">
+                <label for="title-quiz"><b>Title</b></label>
+                <input type="text" class="form-control" id="title-quiz" placeholder="Enter Kahoot title...">
+              </div>
+              <div class="form-group">
+                <label for="description-quiz"><b>Description</b></label>
+                <textarea class="form-control" id="description-quiz" rows="5" placeholder="Optional"></textarea>
+              </div>
+            </div>
+            <div class="col-md-6" style="float: right;">
+              <label for="cover-image-quiz"><b>Cover image</b></label>
+              <img class="card-img-top" src="../img/cover.png" alt="cover input" for="cover-image-quiz">
+              <div class="card-body">
+                <div class="input-group mb-3">
+                  <div class="custom-file">
+                    <input type="file" class="form-control-file" id="cover-image-quiz">
+                    <label class="custom-file-label" for="cover-image-quiz">Choose file</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-success">Done!</button>

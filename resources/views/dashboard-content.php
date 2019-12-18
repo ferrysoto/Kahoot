@@ -7,7 +7,7 @@
             Kahoots Created
             <span class="badge badge-primary badge-pill">
             <?php 
-            $count=countRow('*','quiz',"id_creator=".$_SESSION['id_creator']);
+            $count=countRow('quiz',"id_creator=".$_SESSION['id_creator']);
             echo $count[0];
              ?>
           </span>
@@ -16,13 +16,17 @@
             Plays of your Kahoots
             <span class="badge badge-secondary badge-pill">
             <?php 
-            $count=countRow('*','room',"id_creator=".$_SESSION['id_creator']);
+            $count=countRow('room',"id_creator=".$_SESSION['id_creator']);
             echo $count[0];
              ?></span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             Total Players
-            <span class="badge badge-secondary badge-pill">$countPlayers</span>
+            <span class="badge badge-secondary badge-pill">
+            <?php 
+            $count=countRow('players',"id_room in (SELECT id_room from room where id_creator =".$_SESSION['id_creator'].")");
+            echo $count[0];
+             ?></span>
           </li>
           <li>
             <a type="button" data-toggle="modal" data-target="#newQuiz" class="list-group-item list-group-item-action active">Create new Kahoot</a>

@@ -16,9 +16,9 @@
 		return $result;
 	}*/
 
-	function countRow($selectInfo,$tableInfo,$whereInfo){
+	function countRow($tableInfo,$whereInfo){
 		$pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "");
-		$query = $pdo->prepare("SELECT count(".$selectInfo.") FROM ".$tableInfo." WHERE ".$whereInfo." ;");
+		$query = $pdo->prepare("SELECT count(*) FROM ".$tableInfo." WHERE ".$whereInfo." ;");
 		$query->execute();
 		$result=$query->fetch();
 		return $result;

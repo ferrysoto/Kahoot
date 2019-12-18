@@ -25,7 +25,7 @@
           </form>
           <?php 
             if(isset($_POST['pin'])){
-              $pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "");
+              $pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "P@ssw0rd");
               $query = $pdo->prepare("SELECT id_room, id_quiz FROM room where pin = '". $_POST['pin'] ."' and status = 'waiting';" );
               $query->execute();
               $registre = $query->fetch();

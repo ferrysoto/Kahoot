@@ -1,6 +1,6 @@
 <?php 
 		
-		$pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "");
+		$pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "P@ssw0rd");
 
 		if (isset($_GET['play'])){
 		    $_SESSION['id_quiz']=$_GET['play'];

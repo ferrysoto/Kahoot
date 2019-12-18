@@ -27,7 +27,7 @@
             if(isset($_POST['name'])){
               $_SESSION['playerNick']=$_POST['name'];
 
-              $pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "");
+              $pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "P@ssw0rd");
               $query=$pdo->prepare("INSERT INTO players (id_room, nickname) VALUES (".$_SESSION['id_room'].", '".$_SESSION['playerNick']."');");
               $query->execute();
 

@@ -46,7 +46,7 @@
                <h1 class="display-4">My Kahoots</h1>
                <hr class="my-4">
                <?php
-               $pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "");
+               $pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "P@ssw0rd");
                $query = $pdo->prepare("SELECT * FROM quiz where id_creator = ".  $_SESSION['id_creator'] .";" );
                $query->execute();
                $quizs = $query->fetchAll();

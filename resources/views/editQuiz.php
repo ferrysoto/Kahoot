@@ -56,7 +56,7 @@ include 'optionsButtons.php';
 	</nav>
 <div class="container">
 	<?php 
-		$pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "");
+		$pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "P@ssw0rd");
         $query = $pdo->prepare("SELECT * FROM questions where id_quiz = ".  $_SESSION['editQuiz'] .";" );
         $query->execute();
         $questions = $query->fetchAll();

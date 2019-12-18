@@ -5,11 +5,20 @@
          <ul class="list-group list-group-flush">
           <li class="list-group-item-primary list-group-item d-flex justify-content-between align-items-center">
             Kahoots Created
-            <span class="badge badge-primary badge-pill">$countKahoots</span>
+            <span class="badge badge-primary badge-pill">
+            <?php 
+            $count=countRow('*','quiz',"id_creator=".$_SESSION['id_creator']);
+            echo $count[0];
+             ?>
+          </span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             Plays of your Kahoots
-            <span class="badge badge-secondary badge-pill">$countKahootsPlayed</span>
+            <span class="badge badge-secondary badge-pill">
+            <?php 
+            $count=countRow('*','room',"id_creator=".$_SESSION['id_creator']);
+            echo $count[0];
+             ?></span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             Total Players

@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
       <ul class="navbar-nav">
         <a href="./">
-          <img src="./resources/logo.png" alt="Logo Kahoot" width="100px" height="auto" style="filter: brightness(100);">
+          <img src="./resources/img/logo.png" alt="Logo Kahoot" width="100px" height="auto" style="filter: brightness(100);">
         </a>
       </ul>
       <ul class="navbar-nav">

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <?php 
+    include '../helps/links.php';    
+    ?>
     <link rel="stylesheet" href="./public/css/main.css">
     <link rel="stylesheet" href="./public/css/bootstrap.css">
     <script type="text/javascript" src="./public/js/bootstrap.js"></script>

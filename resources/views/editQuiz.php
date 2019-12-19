@@ -41,7 +41,12 @@
 
         </div>
         <div class="col-md-10" style="background-color: #f2f2f2;">
-          <input type="text" name="" value="" placeholder="Click to start typing your question" style="width: 90%;">
+          <!-- Material input -->
+          <div class="md-form">
+            <input type="text" id="inputDisabledEx" class="form-control" disabled>
+            <label for="inputDisabledEx" class="disabled">Example label</label>
+          </div>
+          <!-- <input type="text" name="" value="" placeholder="Click to start typing your question" style="width: 90%;"> -->
         </div>
     </div>
 </div>

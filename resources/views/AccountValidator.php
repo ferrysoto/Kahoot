@@ -20,7 +20,7 @@
 		$type = htmlspecialchars($_POST['typeAccount']);
 
 		try {
-			$pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "");
+			$pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "P@ssw0rd");
 			$query = $pdo->prepare("INSERT INTO `creators` (`role`, `username`, `name`, `email`, `password`) VALUES ('$type', '$user', '$name', '$email', sha2('$pass', 512));");
 			$res = $query->execute();
 
@@ -47,6 +47,6 @@
 			echo "Failed to get DB handle: " . $e->getMessage() . "\n";
 			exit;
 		}
-		?>		
+		?>
 	</body>
 </html>

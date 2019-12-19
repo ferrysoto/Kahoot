@@ -52,7 +52,7 @@ include 'optionsButtons.php';
 	</nav>
 	<div class="container">
 		<?php  
-			$pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "");
+			$pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "P@ssw0rd");
 			$query = $pdo->prepare("SELECT status FROM room where id_room = ".$_SESSION['id_room'].";" );
    			$query->execute();
     		$status = $query->fetch();

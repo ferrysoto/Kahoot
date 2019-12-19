@@ -1,6 +1,6 @@
-<?php 
-		
-		$pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "");
+<?php
+
+		$pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "P@ssw0rd");
 
 		if (isset($_GET['play'])){
 		    $_SESSION['id_quiz']=$_GET['play'];
@@ -29,27 +29,27 @@
 			$_SESSION['editQuiz']=$_GET['edit'];
 			header("Location: editQuiz.php");
 		}
-		if (isset($_GET['delete'])){			
+		if (isset($_GET['delete'])){
 			$query = $pdo->prepare("DELETE FROM quiz where id_quiz = ".  $_GET['delete'] .";" );
         	$query->execute();
         	header("Location: dashboard.php");
 		}
 
-		if (isset($_GET['deleteQuestion'])){			
+		if (isset($_GET['deleteQuestion'])){
 			$query = $pdo->prepare("DELETE FROM questions where id_question = ".  $_GET['deleteQuestion'] .";" );
         	$query->execute();
         	header("Location: editQuiz.php");
 		}
 
 
-		if (isset($_GET['cancel'])){			
+		if (isset($_GET['cancel'])){
 			$query = $pdo->prepare("DELETE FROM room where id_room = ".  $_SESSION['id_room'] .";" );
         	$query->execute();
         	header("Location: dashboard.php");
 		}
 
 
-		if (isset($_GET['startGame'])){	
+		if (isset($_GET['startGame'])){
 			$query = $pdo->prepare("SELECT * FROM questions where id_quiz = '".$_SESSION['id_quiz']."';" );
 			$query->execute();
 			$_SESSION['arrayQuestions'] = $query->fetchAll();
@@ -66,20 +66,20 @@
 				$query = $pdo->prepare("UPDATE room SET status ='".$id."'' where id_room = ". $_SESSION['id_room'].";" );
 			}else{
 				$query = $pdo->prepare("UPDATE room SET status ='finished' where id_room = ". $_SESSION['id_room'].";" );
-			}		
-			
+			}
+
         	$query->execute();
         	header("Location: playAdmin.php");
 		}
 
 
-		if (isset($_GET['saveAnswer'])){			
+		if (isset($_GET['saveAnswer'])){
 			$query = $pdo->prepare("INSERT into votes SET (id_player, id_answer)status ='finished' values ".$_SESSION['id_player'].", ".$_GET['saveAnswer'].";" );
-		
+
         	$query->execute();
         	header("Location: playPlayer.php");
 		}
 
-		
+
 
 		?>

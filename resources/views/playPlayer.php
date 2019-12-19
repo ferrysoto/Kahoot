@@ -41,7 +41,7 @@ include 'optionsButtons.php';
       <div class="col-xl-6 col-md-6 mx-auto text-center" style="vertical-align: middle;" >
           <?php 
               
-              $pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "");
+              $pdo = new PDO("mysql:host=localhost; dbname=kahoot", "root", "P@ssw0rd");
               $query = $pdo->prepare("SELECT status FROM room where id_room = '". $_SESSION['id_room'] ."';" );
               $query->execute();
               $registre = $query->fetch();

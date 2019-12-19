@@ -41,12 +41,21 @@
 
         </div>
         <div class="col-md-10" style="background-color: #f2f2f2;">
-          <!-- Material input -->
           <div class="md-form">
-            <input type="text" id="inputDisabledEx" class="form-control" disabled>
-            <label for="inputDisabledEx" class="disabled">Example label</label>
+            <input placeholder="Click to start typing your question" type="text" id="inputPrefilledEx" class="form-control input-title">
           </div>
-          <!-- <input type="text" name="" value="" placeholder="Click to start typing your question" style="width: 90%;"> -->
+          <div class="col-md-2">
+
+          </div>
+          <div class="col-md-8">
+            <div class="image-upload">
+              <label for="file-input">
+                <img src="../img/cover-image.png" alt ="Click to select image" title ="Click to select image">
+                <input id="file-input" type="file"/>
+              </label>
+            </div>
+          </div>
+          <!-- Material input -->
         </div>
     </div>
 </div>

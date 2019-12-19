@@ -107,3 +107,18 @@ p {
 .modal-full-width {
   width: 150%!important;
 }
+
+.input-title {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 1.75rem;
+  height: 4.75rem!important;
+}
+
+.image-upload > label > input{
+    display: none;
+}
+
+.image-upload img {
+    cursor: pointer;
+}

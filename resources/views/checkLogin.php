@@ -12,6 +12,9 @@ $pass = htmlspecialchars($_POST['password']);
         $registre = $query->fetch();
         if(!$registre){
       		echo "Contraseña o usuario incorrecto";
+
+        }elseif (is_null($registre[7])) {
+          echo "No esta activada tu cuenta";
         }else{
           $_SESSION['nameCreator']=$registre['name'];
           $_SESSION['id_creator']=$registre['id_creator'];

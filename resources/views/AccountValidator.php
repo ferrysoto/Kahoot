@@ -71,7 +71,7 @@
 
 				if (generateToken($id_creator[0])){
 					$tokenURL = $_SESSION['token'];
-					header('location:localhost/Projectos/projecte2/Kahoot/resources/views/confirmationPage.php?token='.$tokenURL.'');
+					header('Location: ./confirmationPage.php?token='.$tokenURL.'');
 					// $to_email = $email;
 					// $subject = 'Confirmation mail';
 					// $headers = 'From: noreply@kahootproject.com';

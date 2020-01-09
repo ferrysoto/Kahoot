@@ -21,6 +21,20 @@
         if ($uploadOk == 0) {
             // if everything is ok, try to upload file
         } else {
+
+            if (file_exists('../img/imatges_perfil/'.$id_creator['id_creator'].'.jpg')) {
+                unlink("../img/imatges_perfil/".$id_creator['id_creator'].".jpg");
+            }
+            if (file_exists('../img/imatges_perfil/'.$id_creator['id_creator'].'.png')) {
+                unlink("../img/imatges_perfil/".$id_creator['id_creator'].".png");
+            }
+            if (file_exists('../img/imatges_perfil/'.$id_creator['id_creator'].'.jpeg')) {
+                unlink("../img/imatges_perfil/".$id_creator['id_creator'].".jpeg");
+            }
+            if (file_exists('../img/imatges_perfil/'.$id_creator['id_creator'].'.gif')) {
+                unlink("../img/imatges_perfil/".$id_creator['id_creator'].".gif");
+            }
+           
             if (move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)) {
                              
                 rename($target_file, "../img/imatges_perfil/".$id_creator['id_creator'].".".$imageFileType);

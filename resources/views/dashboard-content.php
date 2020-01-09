@@ -49,9 +49,12 @@
                  echo "<table class='table table-responsive-sm mt-5 mx-auto' style='margin-top: 20px;'><thead><tr><th class='text-center' scope='col'>Name Quiz</th><th scope='col' class='text-center'>Question number</th><th scope='col' class='text-center'>Options</th></tr></thead><tbody>";
 
                  foreach ($quizs as $quiz) {
+
+                  $count=countRow('questions',"id_quiz=".$quiz['id_quiz']);
+             
                    echo '<tr>' .
                    '<td class="text-center">'.$quiz['name'].'</td>' .
-                   '<td class="text-center">questions count</td>'.
+                   '<td class="text-center">'.$count[0].'</td>'.
                    '<td class="text-center"><div class="btn-group d-flex justify-content-center" role="group" aria-label="First group">' .
 
                    '<a href="dashboard.php?play='.$quiz['id_quiz'].'" role="button" class="btn btn-primary " name="button" >Play</a>'.

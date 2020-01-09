@@ -87,11 +87,11 @@
             <div class="col-md-6" style="float: left;">
               <div class="form-group">
                 <label for="title-quiz"><b>Title</b></label>
-                <input type="text" class="form-control" id="title-quiz" placeholder="Enter Kahoot title...">
+                <input type="text" class="form-control" id="title-quiz" name="title-quiz" maxlength="100" placeholder="Enter Kahoot title...">
               </div>
               <div class="form-group">
                 <label for="description-quiz"><b>Description</b></label>
-                <textarea class="form-control" id="description-quiz" rows="5" placeholder="Optional"></textarea>
+                <textarea class="form-control" id="description-quiz" name="description-quiz" rows="5" placeholder="Optional" maxlength="255"></textarea>
               </div>
             </div>
             <div class="col-md-6" style="float: right;">
@@ -111,7 +111,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Done!</button>
+        <input type="submit" name="create-kahoot" class="btn btn-success" value="Done!"/>
       </div>
     </div>
   </div>

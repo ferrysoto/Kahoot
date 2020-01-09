@@ -90,13 +90,14 @@
             <div class="col-md-6" style="float: left;">
               <div class="form-group">
                 <label for="title-quiz"><b>Title</b></label>
-                <input type="text" class="form-control" id="title-quiz" placeholder="Enter Kahoot title...">
+                <input type="text" class="form-control" id="title-quiz" name="title-quiz" maxlength="100" placeholder="Enter Kahoot title...">
               </div>
               <div class="form-group">
                 <label for="description-quiz"><b>Description</b></label>
-                <textarea class="form-control" id="description-quiz" rows="5" placeholder="Optional"></textarea>
+                <textarea class="form-control" id="description-quiz" name="description-quiz" rows="5" placeholder="Optional" maxlength="255"></textarea>
               </div>
             </div>
+            <input type="hidden" name="id-creator" value="<?php $_SESSION['id_creator'] ?>">
             <div class="col-md-6" style="float: right;">
               <label for="cover-image-quiz"><b>Cover image</b></label>
               <img class="card-img-top" src="../img/cover.png" alt="cover input" for="cover-image-quiz">
@@ -109,12 +110,12 @@
                 </div>
               </div>
             </div>
-          </form>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Done!</button>
+        <input type="submit" class="btn btn-success" value="Done!"/>
+      </form>
       </div>
     </div>
   </div>
